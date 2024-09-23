@@ -133,7 +133,7 @@ const Work = () => {
                           src={project.image}
                           fill
                           className="object-cover"
-                          alts=""
+                          alt={project.title}
                         />
                       </div>
                     </div>

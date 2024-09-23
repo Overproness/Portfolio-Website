@@ -3,10 +3,9 @@
   "rules": {
     "react/no-unescaped-entities": "off",
     "@next/next/no-page-custom-font": "off",
-    "@typescript-eslint/quotes":"off",
     "quotes": [0],
-    "avoidEscape": 0,
-    "allowTemplateLiterals": 0,
+    "avoidEscape": true,
+    "allowTemplateLiterals": true,
     "no-useless-escape": 0
   }
 }
