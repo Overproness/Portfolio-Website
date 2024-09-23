@@ -21,9 +21,9 @@ const projects = [
   {
     num: "01",
     category: "Web Development",
-    title: "React Portfolio",
-    description: "A personal portfolio website built with React and Next.js.",
-    stack: [{ name: "React" }, { name: "Next.js" }, { name: "Tailwind CSS" }],
+    title: "MERN Website for Client",
+    description: "A personal portfolio website built using MERN Stack",
+    stack: [{ name: "React" }, { name: "Node.js" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb1.png",
     live: "",
     github: "",
@@ -31,9 +31,13 @@ const projects = [
   {
     num: "02",
     category: "Web Development",
-    title: "React Portfolio",
-    description: "A personal portfolio website built with React and Next.js.",
-    stack: [{ name: "React" }, { name: "Next.js" }, { name: "Tailwind CSS" }],
+    title: "Wordpress Ecommerce Store for Client",
+    description: "An ecommerce store built with Wordpress and Elementor.",
+    stack: [
+      { name: "Wordpress" },
+      { name: "Elementor" },
+      { name: "WooCommerce" },
+    ],
     image: "/assets/work/thumb2.png",
     live: "",
     github: "",
@@ -41,7 +45,7 @@ const projects = [
   {
     num: "03",
     category: "Web Development",
-    title: "React Portfolio",
+    title: "NEXT.js Portfolio",
     description: "A personal portfolio website built with React and Next.js.",
     stack: [{ name: "React" }, { name: "Next.js" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb3.png",
@@ -75,7 +79,7 @@ const Work = () => {
                 {project.num}
               </div>
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
+                {project.title}
               </h2>
               <p className="text-white/60">{project.description}</p>
               <ul className="flex gap-4">

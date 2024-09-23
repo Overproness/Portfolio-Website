@@ -57,34 +57,19 @@ const experience = {
   description: "I have 12+ years of experience in web development.",
   items: [
     {
-      company: "Tech Solutions",
-      position: "Senior Developer",
-      duration: "2019 - Present",
+      company: "DEIMOS Tech",
+      position: "Freelance Web Developer",
+      duration: "2024 - Present",
     },
     {
-      company: "Tech Solutions",
-      position: "Senior Developer",
-      duration: "2019 - Present",
+      company: "Fiverr",
+      position: "Freelance Web Developer",
+      duration: "2024 - Present",
     },
     {
-      company: "Tech Solutions",
-      position: "Senior Developer",
-      duration: "2019 - Present",
-    },
-    {
-      company: "Tech Solutions",
-      position: "Senior Developer",
-      duration: "2019 - Present",
-    },
-    {
-      company: "Tech Solutions",
-      position: "Senior Developer",
-      duration: "2019 - Present",
-    },
-    {
-      company: "Tech Solutions",
-      position: "Senior Developer",
-      duration: "2019 - Present",
+      company: "Miracle Trading",
+      position: "Freelance Wordpress Developer",
+      duration: "2022",
     },
   ],
 };
@@ -95,19 +80,19 @@ const education = {
   description: "I have 12+ years of experience in web development.",
   items: [
     {
-      institution: "Tech Solutions",
-      degree: "Senior Developer",
-      duration: "2023",
+      institution: "NUST",
+      degree: "BS DS",
+      duration: "2023 - ",
     },
     {
-      institution: "Tech Solutions",
-      degree: "Senior Developer",
-      duration: "2023",
+      institution: "Punjab College",
+      degree: "Intermediate",
+      duration: "2021 - 2023",
     },
     {
-      institution: "Tech Solutions",
-      degree: "Senior Developer",
-      duration: "2023",
+      institution: "Unique High School",
+      degree: "Matric",
+      duration: "2016 - 2021",
     },
   ],
 };
@@ -154,13 +139,19 @@ const skills = {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
+// import {
+//   Tooltip,
+//   TooltipContent,
+//   TooltipProvider,
+//   TooltipTrigger,
+// } from "@/components/ui/tooltip";
+
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
 import { motion } from "framer-motion";
 
 const Resume = () => {
