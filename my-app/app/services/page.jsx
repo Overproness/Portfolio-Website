@@ -8,28 +8,28 @@ const services = [
     num: "01",
     title: "Web Development",
     description:
-      "We build custom websites that are fast, secure, and easy to manage.",
+      "I have built many fast and beautiful websites using different technologies like wordpress, mern stack, bootstrap studio, next js etc.",
     href: "",
   },
   {
     num: "02",
-    title: "Software Development",
+    title: "Web Automation",
     description:
-      "We build custom websites that are fast, secure, and easy to manage.",
+      "This includes building bots using selenium to automate day-to-day tasks for customers as well as using technologies like beautiful soup for web scrapping .",
     href: "",
   },
   {
     num: "03",
-    title: "Wordpress Development",
+    title: "Software Development",
     description:
-      "We build custom websites that are fast, secure, and easy to manage.",
+      "I have a very good knowledge about creating very complex and functional desktop apps in fast languages like C/C++.",
     href: "",
   },
   {
     num: "01",
     title: "AI/ML",
     description:
-      "We build custom websites that are fast, secure, and easy to manage.",
+      "This includes building path finders and using HMMs for doing simple tasks to building CNNs for detection etc.",
     href: "",
   },
 ];

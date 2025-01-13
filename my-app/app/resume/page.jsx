@@ -26,7 +26,7 @@ const about = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "12+ Years",
+      fieldValue: "5+ Years",
     },
     {
       fieldName: "Email",
@@ -54,8 +54,14 @@ const about = {
 const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
-  description: "I have 12+ years of experience in web development.",
+  description:
+    "I have 5+ years of experience in web development and 2+ years of experience in web automation.",
   items: [
+    {
+      company: "Freelancer at Fiverr",
+      position: "Web Developer and Web Automator",
+      duration: "2024 - Present",
+    },
     {
       company: "DEIMOS Tech",
       position: "Freelance Web Developer",

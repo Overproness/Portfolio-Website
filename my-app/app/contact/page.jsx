@@ -30,10 +30,55 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import emailjs from "@emailjs/browser";
 import { SelectItem, SelectLabel } from "@radix-ui/react-select";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
+
+  const [selectedService, setSelectedService] = useState("");
+
+  const submitContactForm = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_lte2g4l",
+        "template_a2ebx6c",
+        e.target,
+        "kjxPVH-coJg4I48fK"
+      )
+      .then(
+        (result) => {
+          console.log("Email sent successfully", result.text);
+        },
+        (error) => {
+          console.log("Email sending error", error.text);
+        }
+      );
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleServiceChange = (value) => {
+    console.log(value);
+
+    setSelectedService(value);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -46,41 +91,81 @@ const Contact = () => {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:h-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <form
+              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+              onSubmit={submitContactForm}
+            >
               <h3 className="text-4xl text-accent">Let's work together</h3>
               <p className="text-white/60">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Tempore, neque delectus nemo, sint obcaecati deserunt eum atque
-                fugiat, assumenda ipsam iusto maiores adipisci doloremque quos
-                impedit laborum ratione illum nobis.
+                I'm very excited to work with you. Please fill out the form
+                below if you have any queries or want to work with me.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstname" placeholder="Firstname" />
-                <Input type="lastname" placeholder="Lastname" />
-                <Input type="address" placeholder="Address" />
-                <Input type="phone" placeholder="Phone Number" />
+                <Input
+                  name="firstname"
+                  value={formData.firstname}
+                  onChange={handleChange}
+                  type="text"
+                  placeholder="Firstname"
+                />
+                <Input
+                  name="lastname"
+                  value={formData.lastname}
+                  onChange={handleChange}
+                  type="text"
+                  placeholder="Lastname"
+                />
+                <Input
+                  type="email"
+                  name="email"
+                  value={formData.address}
+                  onChange={handleChange}
+                  placeholder="Email"
+                />
+                <Input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone Number"
+                />
               </div>
 
-              <Select>
-                <SelectTrigger className="w-full">
+              <Select
+                value={selectedService}
+                onValueChange={handleServiceChange}
+              >
+                <SelectTrigger>
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="est">Web Development</SelectItem>
-                    <SelectItem value="cst">Software Development</SelectItem>
-                    <SelectItem value="mst">AI/ML Development</SelectItem>
+                    <SelectItem value="Web Development">
+                      Web Development
+                    </SelectItem>
+                    <SelectItem value="Web Automation">
+                      Web Automation
+                    </SelectItem>
+                    <SelectItem value="Software Development">
+                      Software Development
+                    </SelectItem>
+                    <SelectItem value="AI/ML Development">
+                      AI/ML Development
+                    </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
 
               <Textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 className="h-[200px]"
                 placeholder="Type your message here. "
               />
 
-              <Button size="md" className="max-w-40">
+              <Button size="md" className="max-w-40" type="submit">
                 Send Message
               </Button>
             </form>

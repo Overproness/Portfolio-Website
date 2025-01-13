@@ -25,8 +25,8 @@ const projects = [
     description: "A personal portfolio website built using MERN Stack",
     stack: [{ name: "React" }, { name: "Node.js" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb1.png",
-    live: "",
-    github: "",
+    live: "https://github.com/Overproness/",
+    github: "https://github.com/Overproness/",
   },
   {
     num: "02",
@@ -39,8 +39,8 @@ const projects = [
       { name: "WooCommerce" },
     ],
     image: "/assets/work/thumb2.png",
-    live: "",
-    github: "",
+    live: "https://github.com/Overproness/",
+    github: "https://github.com/Overproness/",
   },
   {
     num: "03",
@@ -49,8 +49,8 @@ const projects = [
     description: "A personal portfolio website built with React and Next.js.",
     stack: [{ name: "React" }, { name: "Next.js" }, { name: "Tailwind CSS" }],
     image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
+    live: "https://github.com/Overproness/",
+    github: "https://github.com/Overproness/",
   },
 ];
 
