@@ -30,7 +30,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import emailjs from "@emailjs/browser";
 import { SelectItem, SelectLabel } from "@radix-ui/react-select";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -49,21 +48,14 @@ const Contact = () => {
 
   const submitContactForm = (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_lte2g4l",
-        "template_a2ebx6c",
-        e.target,
-        "kjxPVH-coJg4I48fK"
-      )
-      .then(
-        (result) => {
-          console.log("Email sent successfully", result.text);
-        },
-        (error) => {
-          console.log("Email sending error", error.text);
-        }
-      );
+    // emailjs.sendForm("SERVICE_ID", "TEMPLATE_ID", e.target, "USER_ID").then(
+    //   (result) => {
+    //     console.log("Email sent successfully", result.text);
+    //   },
+    //   (error) => {
+    //     console.log("Email sending error", error.text);
+    //   }
+    // );
   };
 
   const handleChange = (e) => {
