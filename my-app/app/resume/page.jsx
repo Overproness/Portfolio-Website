@@ -58,24 +58,24 @@ const experience = {
     "I have 5+ years of experience in web development and 2+ years of experience in web automation.",
   items: [
     {
+      company: "TUKL Research Lab",
+      position: "Deep Learning Research Intern",
+      duration: "Jun 25, - Sep 25",
+    },
+    {
+      company: "SEECS OHMP",
+      position: "Web Dev Intern",
+      duration: "Jan 25 - July 25",
+    },
+    {
+      company: "Nust Science Society",
+      position: "Web Developer Executive",
+      duration: "2024 - Present",
+    },
+    {
       company: "Freelancer at Fiverr",
       position: "Web Developer and Web Automator",
       duration: "2024 - Present",
-    },
-    {
-      company: "DEIMOS Tech",
-      position: "Freelance Web Developer",
-      duration: "2024 - Present",
-    },
-    {
-      company: "Fiverr",
-      position: "Freelance Web Developer",
-      duration: "2024 - Present",
-    },
-    {
-      company: "Miracle Trading",
-      position: "Freelance Wordpress Developer",
-      duration: "2022",
     },
   ],
 };
@@ -87,7 +87,7 @@ const education = {
   items: [
     {
       institution: "NUST",
-      degree: "BS DS",
+      degree: "Bachelors of Honours in Data Science",
       duration: "2023 - ",
     },
     {
@@ -97,7 +97,7 @@ const education = {
     },
     {
       institution: "Unique High School",
-      degree: "Matric",
+      degree: "Matriculation",
       duration: "2016 - 2021",
     },
   ],
@@ -105,7 +105,7 @@ const education = {
 
 const skills = {
   title: "My skills",
-  description: "I have 12+ years of experience in web development.",
+  description: "I have 5+ years of experience in web development.",
   skilllist: [
     {
       icon: <FaHtml5 />,

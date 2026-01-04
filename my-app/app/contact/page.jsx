@@ -1,6 +1,7 @@
 "use client";
 
-import { FaEnvelope, FaMapMarkedAlt, FaPhoneAlt } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
+import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 const info = [
   {
@@ -13,11 +14,11 @@ const info = [
     title: "Email",
     description: "researcherintycoons@gmail.com",
   },
-  {
-    icon: <FaMapMarkedAlt />,
-    title: "Address",
-    description: "Can't give out my address here",
-  },
+  // {
+  //   icon: <FaMapMarkedAlt />,
+  //   title: "Address",
+  //   description: "Can't give out my address here",
+  // },
 ];
 
 import { Button } from "@/components/ui/button";
@@ -26,11 +27,12 @@ import {
   Select,
   SelectContent,
   SelectGroup,
+  SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { SelectItem, SelectLabel } from "@radix-ui/react-select";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -45,17 +47,65 @@ const Contact = () => {
   });
 
   const [selectedService, setSelectedService] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState("");
 
   const submitContactForm = (e) => {
     e.preventDefault();
-    // emailjs.sendForm("SERVICE_ID", "TEMPLATE_ID", e.target, "USER_ID").then(
-    //   (result) => {
-    //     console.log("Email sent successfully", result.text);
-    //   },
-    //   (error) => {
-    //     console.log("Email sending error", error.text);
-    //   }
-    // );
+    setIsLoading(true);
+    setSubmitStatus("");
+
+    // EmailJS configuration
+    const serviceId = process.env.EMAILJS_SERVICE_ID;
+    const templateId = process.env.EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.EMAILJS_PUBLIC_KEY;
+
+    // Validate environment variables
+    if (!serviceId || !templateId || !publicKey) {
+      console.error(
+        "EmailJS credentials are missing. Please check your .env.local file"
+      );
+      setSubmitStatus("error");
+      setIsLoading(false);
+      return;
+    }
+
+    // Prepare template params - these variable names should match your EmailJS template
+    // NOTE: Recipient email must be configured in EmailJS template settings on their dashboard
+    const templateParams = {
+      from_name: `${formData.firstname} ${formData.lastname}`,
+      from_email: formData.email,
+      phone: formData.phone,
+      service: selectedService,
+      message: formData.message,
+      reply_to: formData.email,
+      email: "researcherintycoons@gmail.com",
+    };
+    console.log("🚀 ~ submitContactForm ~ templateParams:", templateParams);
+
+    emailjs
+      .send(serviceId, templateId, templateParams, { publicKey })
+      .then((result) => {
+        console.log("Email sent successfully", result);
+        setSubmitStatus("success");
+        // Reset form
+        setFormData({
+          firstname: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+        setSelectedService("");
+      })
+      .catch((error) => {
+        console.error("Email sending error:", error);
+        setSubmitStatus("error");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const handleChange = (e) => {
@@ -110,7 +160,7 @@ const Contact = () => {
                 <Input
                   type="email"
                   name="email"
-                  value={formData.address}
+                  value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
                 />
@@ -157,8 +207,25 @@ const Contact = () => {
                 placeholder="Type your message here. "
               />
 
-              <Button size="md" className="max-w-40" type="submit">
-                Send Message
+              {submitStatus === "success" && (
+                <p className="text-green-500">
+                  ✓ Message sent successfully! I'll get back to you soon.
+                </p>
+              )}
+              {submitStatus === "error" && (
+                <p className="text-red-500">
+                  ✗ Failed to send message. Please try again or email me
+                  directly.
+                </p>
+              )}
+
+              <Button
+                size="md"
+                className="max-w-40"
+                type="submit"
+                disabled={isLoading}
+              >
+                {isLoading ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </div>
