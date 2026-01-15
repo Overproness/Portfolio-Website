@@ -382,7 +382,7 @@ const projects = [
     description:
       "A web application to manage and organize tasks efficiently. It provides task management in a gamified manner to keep users motivated to complete tasks.",
     stack: [{ name: "Next.js" }, { name: "MongoDB" }],
-    live: "task-list-management-mern.vercel.app",
+    live: "https://task-list-management-mern.vercel.app",
     github: "https://github.com/Overproness/Task-List-Management-MERN",
     date: "Nov 2025",
   },
