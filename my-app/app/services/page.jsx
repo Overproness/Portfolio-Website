@@ -27,7 +27,7 @@ const services = [
   },
   {
     num: "04",
-    title: "AI/ML",
+    title: "ML/DL",
     description:
       "This includes building path finders and using HMMs for doing simple tasks to building CNNs for detection etc.",
     href: "",

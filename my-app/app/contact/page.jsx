@@ -1,6 +1,5 @@
 "use client";
 
-import emailjs from "@emailjs/browser";
 import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 const info = [
@@ -50,43 +49,31 @@ const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState("");
 
-  const submitContactForm = (e) => {
+  const submitContactForm = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setSubmitStatus("");
 
-    // EmailJS configuration
-    const serviceId = process.env.EMAILJS_SERVICE_ID;
-    const templateId = process.env.EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.EMAILJS_PUBLIC_KEY;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstname: formData.firstname,
+          lastname: formData.lastname,
+          email: formData.email,
+          phone: formData.phone,
+          service: selectedService,
+          message: formData.message,
+        }),
+      });
 
-    // Validate environment variables
-    if (!serviceId || !templateId || !publicKey) {
-      console.error(
-        "EmailJS credentials are missing. Please check your .env.local file"
-      );
-      setSubmitStatus("error");
-      setIsLoading(false);
-      return;
-    }
+      const data = await response.json();
 
-    // Prepare template params - these variable names should match your EmailJS template
-    // NOTE: Recipient email must be configured in EmailJS template settings on their dashboard
-    const templateParams = {
-      from_name: `${formData.firstname} ${formData.lastname}`,
-      from_email: formData.email,
-      phone: formData.phone,
-      service: selectedService,
-      message: formData.message,
-      reply_to: formData.email,
-      email: "researcherintycoons@gmail.com",
-    };
-    console.log("🚀 ~ submitContactForm ~ templateParams:", templateParams);
-
-    emailjs
-      .send(serviceId, templateId, templateParams, { publicKey })
-      .then((result) => {
-        console.log("Email sent successfully", result);
+      if (response.ok) {
+        console.log("Email sent successfully", data);
         setSubmitStatus("success");
         // Reset form
         setFormData({
@@ -98,14 +85,16 @@ const Contact = () => {
           message: "",
         });
         setSelectedService("");
-      })
-      .catch((error) => {
-        console.error("Email sending error:", error);
+      } else {
+        console.error("Email sending error:", data.error);
         setSubmitStatus("error");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      }
+    } catch (error) {
+      console.error("Email sending error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e) => {

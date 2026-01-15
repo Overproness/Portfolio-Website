@@ -11,6 +11,8 @@ import {
 
 import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
 
+const currentYear = new Date().getFullYear();
+
 const about = {
   title: "About Me",
   description:
@@ -26,7 +28,7 @@ const about = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "5+ Years",
+      fieldValue: `${currentYear - 2020}+ Years`,
     },
     {
       fieldName: "Email",
@@ -54,8 +56,11 @@ const about = {
 const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
-  description:
-    "I have 5+ years of experience in web development and 2+ years of experience in web automation.",
+  description: `I have ${
+    currentYear - 2020
+  }+ years of experience in web development and ${
+    currentYear - 2022
+  }+ years of experience in web automation.`,
   items: [
     {
       company: "TUKL Research Lab",
@@ -83,7 +88,7 @@ const experience = {
 const education = {
   icon: "/assets/resume/cap.svg",
   title: "My education",
-  description: "I have 12+ years of experience in web development.",
+  description: ``,
   items: [
     {
       institution: "NUST",
@@ -105,7 +110,7 @@ const education = {
 
 const skills = {
   title: "My skills",
-  description: "I have 5+ years of experience in web development.",
+  description: "",
   skilllist: [
     {
       icon: <FaHtml5 />,
