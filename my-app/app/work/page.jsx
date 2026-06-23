@@ -32,15 +32,14 @@ const projects = [
       "Artificial Intelligence",
       "DevOps",
     ],
-    title: "Quickmation",
+    title: "ERP.js",
     description:
       "A complete ERP + CRM solution for businesses, along with AI tools and a complete automation suite. My most Ambitious project till date.",
     stack: [
       { name: "MERN Stack" },
       { name: "Tailwind CSS" },
-      { name: "Python Selenium" },
     ],
-    live: "https://erp.quickmation.com",
+    live: "https://erp-js.vercel.app",
     github: "private",
     date: "Ongoing",
   },
