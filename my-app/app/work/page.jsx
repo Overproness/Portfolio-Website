@@ -73,6 +73,22 @@ const projects = [
     github: "https://github.com/Overproness/abubeast",
   },
   {
+    num: "27",
+    category: ["Web Development", "Automation", "Artificial Intelligence"],
+    title: "Talash",
+    description:
+      "Built TALASH, an end-to-end LLM-powered recruitment system that transforms unstructured CVs into ranked candidate insights and hiring recommendations.",
+    stack: [
+      { name: "Next.js" },
+      { name: "Fast API" },
+      { name: "MongoDB" },
+      { name: "Python Selenium" },
+    ],
+    live: "https://talash-llm-project.vercel.app",
+    github: "https://github.com/Overproness/talash_llm_project",
+    date: "May 2026",
+  },
+  {
     num: "12",
     category: ["Game Development"],
     title: "3d Zombie Survival Game",
@@ -525,7 +541,7 @@ const Work = () => {
   const prevGalleryImage = () => {
     if (project.gallery) {
       setCurrentGalleryIndex((prev) =>
-        prev === 0 ? project.gallery.length - 1 : prev - 1
+        prev === 0 ? project.gallery.length - 1 : prev - 1,
       );
     }
   };
