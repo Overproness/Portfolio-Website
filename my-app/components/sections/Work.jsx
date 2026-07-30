@@ -19,6 +19,7 @@ import {
 } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react"; // Correct Swiper import
 
+import ProjectPreview from "@/components/ProjectPreview";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
 import Image from "next/image";
 import "swiper/css";
@@ -45,7 +46,7 @@ const projects = [
   },
 
   {
-    num: "25",
+    num: "02",
     category: ["Web Development"],
     title: "PBS NYC",
     description:
@@ -56,7 +57,7 @@ const projects = [
     date: "Mar 2025",
   },
   {
-    num: "02",
+    num: "03",
     category: ["Web Development"],
     title: "AbuBeast",
     description:
@@ -72,7 +73,7 @@ const projects = [
     github: "https://github.com/Overproness/abubeast",
   },
   {
-    num: "27",
+    num: "04",
     category: ["Web Development", "Automation", "Artificial Intelligence"],
     title: "Talash",
     description:
@@ -88,7 +89,7 @@ const projects = [
     date: "May 2026",
   },
   {
-    num: "12",
+    num: "05",
     category: ["Game Development"],
     title: "3d Zombie Survival Game",
     description:
@@ -110,7 +111,7 @@ const projects = [
     ],
   },
   {
-    num: "08",
+    num: "06",
     category: ["Management System"],
     title: "Trading System with AI Bot",
     description:
@@ -136,7 +137,7 @@ const projects = [
     ],
   },
   {
-    num: "10",
+    num: "07",
     category: ["Web Development"],
     title: "Deimos Tech Website",
     description:
@@ -151,7 +152,7 @@ const projects = [
     date: "Apr 2024",
   },
   {
-    num: "03",
+    num: "08",
     category: ["Blockchain Development"],
     title: "Swappers 2.0",
     description:
@@ -161,7 +162,7 @@ const projects = [
   },
 
   {
-    num: "11",
+    num: "09",
     category: ["App Development"],
     title: "Easy Chat Application",
     description:
@@ -183,7 +184,7 @@ const projects = [
   },
 
   {
-    num: "13",
+    num: "10",
     category: ["Artificial Intelligence"],
     title: "Chess Puzzle Solver",
     description:
@@ -205,7 +206,7 @@ const projects = [
     ],
   },
   {
-    num: "14",
+    num: "11",
     category: ["DevOps"],
     title: "Webstori",
     description:
@@ -216,7 +217,7 @@ const projects = [
     date: "Feb 2025",
   },
   {
-    num: "15",
+    num: "12",
     category: ["Deep Learning"],
     title: "cGAN Handwritten Digit Generator",
     description:
@@ -232,7 +233,7 @@ const projects = [
     date: "Jun 2025",
   },
   {
-    num: "16",
+    num: "13",
     category: ["Automation", "Web Development"],
     title: "Political Candidates Scrapper and Dashboard",
     description:
@@ -263,7 +264,7 @@ const projects = [
   },
 
   {
-    num: "18",
+    num: "14",
     category: ["Deep Learning"],
     title: "Gaze Gaussian Transformer",
     description:
@@ -291,7 +292,7 @@ const projects = [
   },
 
   {
-    num: "21",
+    num: "15",
     category: ["Deep Learning"],
     title: "GRU XNet",
     description:
@@ -312,7 +313,7 @@ const projects = [
     ],
   },
   {
-    num: "22",
+    num: "16",
     category: ["Machine Learning", "Data Science"],
     title: "Cross Media Bias Analysis Modular Pipeline",
     description:
@@ -335,7 +336,7 @@ const projects = [
     ],
   },
   {
-    num: "23",
+    num: "17",
     category: ["Data Science"],
     title: "F1 Historical & Telemetry Data Visualization",
     description:
@@ -358,7 +359,7 @@ const projects = [
     ],
   },
   {
-    num: "24",
+    num: "18",
     category: ["Deep Learning"],
     title: "PCB Defect Detection",
     description:
@@ -380,7 +381,7 @@ const projects = [
   },
 
   {
-    num: "26",
+    num: "19",
     category: ["Web Development", "Deep Learning"],
     title: "DL Model Builder",
     description:
@@ -402,7 +403,7 @@ const projects = [
     date: "Nov 2025",
   },
   {
-    num: "17",
+    num: "21",
     category: ["Web Development"],
     title: "Medical Bot Website",
     description:
@@ -414,7 +415,7 @@ const projects = [
   },
 
   {
-    num: "04",
+    num: "22",
     category: ["Automation"],
     title: "Typing Speed Bot",
     description:
@@ -435,7 +436,7 @@ const projects = [
     ],
   },
   {
-    num: "05",
+    num: "23",
     category: ["Web Development"],
     title: "Phone App",
     description:
@@ -446,7 +447,7 @@ const projects = [
     date: "Oct 2023",
   },
   {
-    num: "06",
+    num: "24",
     category: ["Web Development"],
     title: "Physics Notes Website",
     description:
@@ -457,7 +458,7 @@ const projects = [
     date: "Jan 2022",
   },
   {
-    num: "07",
+    num: "25",
     category: ["Web Development"],
     title: "FB Login Page Clone",
     description:
@@ -468,7 +469,7 @@ const projects = [
   },
 
   {
-    num: "09",
+    num: "26",
     category: ["Management System"],
     title: "Library Management System",
     description:
@@ -482,6 +483,7 @@ const projects = [
 
 const Work = () => {
   const [project, setProject] = useState(projects[0]);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -502,12 +504,14 @@ const Work = () => {
   useEffect(() => {
     if (filteredProjects.length > 0) {
       setProject(filteredProjects[0]);
+      setActiveIndex(0);
     }
   }, [filteredProjects]);
 
   const handleSlideChange = (swiper) => {
     const currentIndex = swiper.activeIndex;
     setProject(filteredProjects[currentIndex]);
+    setActiveIndex(currentIndex);
   };
 
   const handleCategoryChange = (category) => {
@@ -701,42 +705,10 @@ const Work = () => {
                         </div>
                       )}
 
-                      {project.live ? (
-                        <div className="relative w-full h-full overflow-hidden pointer-events-none">
-                          <iframe
-                            src={project.live}
-                            className="absolute top-0 left-0 border-0"
-                            style={{
-                              width: "1500px",
-                              height: "1500px",
-                              transform: "scale(0.4)",
-                              transformOrigin: "top left",
-                              pointerEvents: "none",
-                            }}
-                            title={project.title}
-                            loading="lazy"
-                            sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                          />
-                          <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                            <div className="bg-black/50 text-white px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                              Click to interact
-                            </div>
-                          </div>
-                        </div>
-                      ) : project.image ? (
-                        <div className="relative w-full h-full">
-                          <Image
-                            src={project.image}
-                            fill
-                            className="object-contain"
-                            alt={project.title}
-                          />
-                        </div>
-                      ) : (
-                        <div className="relative w-full h-full flex items-center justify-center text-white/60">
-                          <p>No preview available</p>
-                        </div>
-                      )}
+                      <ProjectPreview
+                        project={project}
+                        shouldRender={Math.abs(index - activeIndex) <= 1}
+                      />
                     </div>
                   </SwiperSlide>
                 );

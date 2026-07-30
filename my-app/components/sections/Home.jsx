@@ -2,6 +2,7 @@ import Photo from "@/components/Photo";
 import Social from "@/components/Social";
 import Stats from "@/components/Stats";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { FiDownload } from "react-icons/fi";
 
 const Home = () => {
@@ -20,14 +21,20 @@ const Home = () => {
               technologies.{" "}
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button
-                variant="outline"
-                size="lg"
-                className="uppercase flex items-center gap-2"
+              <Link
+                href="https://drive.google.com/drive/folders/1lrmbpfgdk9KndIdnH5_YWhiqcsAcd1YK?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <span>Download CV</span>
-                <FiDownload className="text-xl" />
-              </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="uppercase flex items-center gap-2"
+                >
+                  <span>Download CV</span>
+                  <FiDownload className="text-xl" />
+                </Button>
+              </Link>
               <div className="mb-8 xl:mb-0">
                 <Social
                   containerStyles="flex gap-6"

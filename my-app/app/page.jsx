@@ -6,12 +6,22 @@ import Work from "@/components/sections/Work";
 
 export default function HomePage() {
   return (
-    <>
-      <Home />
-      <Services />
-      <Resume />
-      <Work />
-      <Contact />
-    </>
+    <div className="flex flex-col">
+      <div className="mb-24 xl:mb-40">
+        <Home />
+      </div>
+      <div className="mb-24 xl:mb-40">
+        <Services />
+      </div>
+      <div className="mb-24 xl:mb-40">
+        <Resume />
+      </div>
+      <div className="mb-24 xl:mb-40">
+        <Work />
+      </div>
+      <div className="mb-24 xl:mb-40">
+        <Contact />
+      </div>
+    </div>
   );
 }
