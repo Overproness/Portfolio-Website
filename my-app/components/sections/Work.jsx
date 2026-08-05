@@ -36,10 +36,7 @@ const projects = [
     title: "ERP.js",
     description:
       "A complete ERP + CRM solution for businesses, along with AI tools and a complete automation suite. My most Ambitious project till date.",
-    stack: [
-      { name: "MERN Stack" },
-      { name: "Tailwind CSS" },
-    ],
+    stack: [{ name: "MERN Stack" }, { name: "Tailwind CSS" }],
     live: "https://erp-js.vercel.app",
     github: "private",
     date: "Ongoing",
@@ -107,6 +104,77 @@ const projects = [
         src: "/webp/zombie-game-2.webm",
         description:
           "Gameplay Video. Each Zombie type can be killed with a specific bullet type only. Its low quality to decrease file size.",
+      },
+    ],
+  },
+  {
+    num: "29",
+    category: ["App Development"],
+    title: "NewsReimagined",
+    description:
+      "Built an AI-powered news aggregation platform that analyzes media bias, sentiment, and coverage across global news sources using custom NLP models.",
+    stack: [{ name: "Flutter" }, { name: "NLP/ML" }, {name: "Web Scrapping"}],
+    image: "/NewsReimagined_mobile_app_thumbnail.png",
+    github: "https://github.com/Hannan7812/NewsApp",
+    date: "May 2026",
+    gallery: [
+      {
+        src: "/NewsReimagined_mobile_app_3.jpeg",
+        description: "Home Page of the App",
+      },
+      {
+        src: "/NewsReimagined_mobile_app_5.jpeg",
+        description: "Basic Analysis of a news article",
+      },
+      {
+        src: "/NewsReimagined_mobile_app_6.jpeg",
+        description: "More Advanced Analysis of a news article",
+      },
+      {
+        src: "/NewsReimagined_mobile_app_7.jpeg",
+        description: "Analysis and summary of a news article",
+      },
+      {
+        src: "/NewsReimagined_mobile_app_8.jpeg",
+        description: "Analytics of the News articles you have consumed. ",
+      },
+    ],
+  },
+  {
+    num: "28",
+    category: ["App Development"],
+    title: "ShopEase",
+    description:
+      "Developed a scalable cross-platform e-commerce app with advanced state management, optimized performance, and seamless backend integration.",
+    stack: [{ name: "Flutter" }, { name: "Dart" }, { name: "BLoC" }],
+    image: "/shopease_ecommerce_app_thumbnail.png",
+    github: "https://github.com/Overproness/ShopEase",
+    date: "Apr 2026",
+    gallery: [
+      {
+        src: "/shopease ecommerce mobile app.mp4",
+        description: "Tour of the App",
+      },
+    ],
+  },
+  {
+    num: "27",
+    category: ["App Development"],
+    title: "Coffee Shop App",
+    description:
+      "Created a visually rich coffee ordering app featuring smooth custom animations, interactive drink customization, and high-performance UI.",
+    stack: [
+      { name: "Flutter" },
+      { name: "Animations" },
+      { name: "Custom Painters" },
+    ],
+    image: "/coffee_shop_app_thumbnail.png",
+    github: "https://github.com/Overproness/Coffee-Shop-App",
+    date: "Mar 2026",
+    gallery: [
+      {
+        src: "/Coffee_Shop_App.webm",
+        description: "Tour of the App",
       },
     ],
   },
