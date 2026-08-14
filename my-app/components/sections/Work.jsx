@@ -113,7 +113,7 @@ const projects = [
     title: "NewsReimagined",
     description:
       "Built an AI-powered news aggregation platform that analyzes media bias, sentiment, and coverage across global news sources using custom NLP models.",
-    stack: [{ name: "Flutter" }, { name: "NLP/ML" }, {name: "Web Scrapping"}],
+    stack: [{ name: "Flutter" }, { name: "NLP/ML" }, { name: "Web Scrapping" }],
     image: "/NewsReimagined_mobile_app_thumbnail.png",
     github: "https://github.com/Hannan7812/NewsApp",
     date: "May 2026",
@@ -412,8 +412,8 @@ const projects = [
     stack: [{ name: "Power Bi" }, { name: "Python" }],
     image: "/webp/f1-visualization-1.webp",
     github:
-      "https://drive.google.com/drive/folders/1dcrOYepBGXEs5ffOzSa_ojgRklX5t8r7?usp=sharing", // its not possible for me to upload PowerBI reports to github as of now, but hopefully in future the problem that I'm facing will be resolved.
-    live: "https://app.powerbi.com/reportEmbed?reportId=0ea98eb2-b04a-42e7-8273-b020bd08e2eb&autoAuth=true&ctid=1511ab2e-502b-4e2d-bd68-f679f549b5a2&actionBarEnabled=true&reportCopilotInEmbed=true",
+      "https://drive.google.com/drive/folders/1IgLkbpH6QiTIIreBKqz5dJ6MjxqCCJEQ?usp=sharing", // its not possible for me to upload PowerBI reports to github as of now, but hopefully in future the problem that I'm facing will be resolved.
+    // live: "https://app.powerbi.com/reportEmbed?reportId=0ea98eb2-b04a-42e7-8273-b020bd08e2eb&autoAuth=true&ctid=1511ab2e-502b-4e2d-bd68-f679f549b5a2&actionBarEnabled=true&reportCopilotInEmbed=true",
     date: "Dec 2025",
     gallery: [
       {
